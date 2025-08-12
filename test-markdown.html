@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown格式测试</title>
+    <link rel="stylesheet" href="frontend/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Markdown格式测试</h1>
+        </div>
+        
+        <div class="chat-container">
+            <div class="chat-messages">
+                <div class="message assistant-message">
+                    <div class="message-content" id="test-content">
+                        <!-- 这里会显示测试内容 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button onclick="testMarkdown()">测试Markdown格式</button>
+    </div>
+
+    <script>
+        // 复制formatText函数进行测试
+        function formatText(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;")
+                .replace(/&lt;strong&gt;/g, '<strong>')
+                .replace(/&lt;\/strong&gt;/g, '</strong>')
+                .replace(/&lt;em&gt;/g, '<em>')
+                .replace(/&lt;\/em&gt;/g, '</em>')
+                .replace(/\n/g, '<br>')
+                .replace(/^(\d+\.\s)/gm, '<strong>$1</strong>')
+                .replace(/^(-\s)/gm, '&nbsp;&nbsp;<strong>•</strong> ')
+                .replace(/•/g, '<strong>•</strong>')
+                .replace(/(<br>\s*){2,}/g, '<br><br>');
+        }
+
+        function testMarkdown() {
+            const testText = `**重要提醒**：您的血糖数值正常！
+
+根据分析：
+1. **当前状态**：血糖在正常范围内
+2. **建议事项**：继续保持良好习惯
+
+**注意**：
+- *适当运动*有助于血糖稳定
+- *规律作息*同样重要
+
+**您是否需要更多建议？**`;
+
+            const formatted = formatText(testText);
+            document.getElementById('test-content').innerHTML = formatted;
+        }
+
+        // 页面加载时自动测试
+        window.onload = testMarkdown;
+    </script>
+</body>
+</html>

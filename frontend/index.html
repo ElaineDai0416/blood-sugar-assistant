@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>血糖管理助手</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🩺 血糖管理助手</h1>
+            <p class="subtitle">您的专业血糖健康伙伴</p>
+        </header>
+
+        <div class="chat-container">
+            <div id="chatMessages" class="chat-messages">
+                <div class="message assistant-message">
+                    <div class="message-content">
+                        <div class="emotional">您好！我是您的血糖管理助手，很高兴为您服务。</div>
+                        <div class="knowledge">我可以帮助您了解血糖管理知识，回答您关于血糖升高、症状处理等问题，并为您提供专业的建议。</div>
+                        <div class="advice">请告诉我您遇到的具体问题，比如：
+                        <br>• "我的血糖突然升高了，怎么办？"
+                        <br>• "为什么我的血糖会突然飙升？"
+                        <br>• "血糖高了我需要紧张吗？"</div>
+                        <div class="follow-up">我会先帮您缓解情绪，然后提供专业的解答和建议。</div>
+                    </div>
+                    <span class="message-time"></span>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-container">
+                    <textarea id="messageInput" placeholder="请描述您的血糖问题或症状..." rows="2"></textarea>
+                    <button id="sendButton" class="send-button">
+                        <span>发送</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-questions">
+            <h3>常见问题</h3>
+            <div class="question-buttons">
+                <button class="quick-btn" data-question="我的血糖突然升高了，该怎么办？">血糖升高处理</button>
+                <button class="quick-btn" data-question="为什么我的血糖会突然飙升？">血糖升高原因</button>
+                <button class="quick-btn" data-question="血糖高了我应该担心吗？">是否需要担心</button>
+                <button class="quick-btn" data-question="我感觉头晕口渴，这是高血糖症状吗？">症状判断</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
